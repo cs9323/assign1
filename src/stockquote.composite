@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<composite xmlns="http://www.osoa.org/xmlns/sca/1.0"
+  xmlns:t="http://tuscany.apache.org/xmlns/sca/1.0"
+  xmlns:c="http://stockquote"
+  targetNamespace="http://stockquote"
+  name="stockquote">
+
+  <component name="StockQuoteComponent">
+    <implementation.java class="stockquote.StockQuoteImpl" />
+    <reference name="converter" target="CurrencyConverterComponent" />
+    <service name="StockQuote" promote="StockQuoteComponent/StockQuote">
+      <interface.java interface="stockquote.StockQuote"/>
+      <binding.ws uri="http://localhost:8081/StockQuote"/>
+    </service>
+  </component>  
+  
+  <component name="CurrencyConverterComponent">
+    <implementation.java class="converter.CurrencyConverterImpl"/>
+  </component>
+  
+</composite>

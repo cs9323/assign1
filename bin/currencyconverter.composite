@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composite xmlns="http://www.osoa.org/xmlns/sca/1.0"
+  xmlns:t="http://tuscany.apache.org/xmlns/sca/1.0"
+  xmlns:c="http://currencyconverter"
+  targetNamespace="http://currencyconverter"
+  name="http://currencyconverter">
+
+  <component name="CurrencyConverterComponent">
+    <implementation.java class="converter.CurrencyConverterImpl"/>
+    <service name="CurrencyConverter">
+      <binding.ws uri="http://localhost:8081/CurrencyConverter"/>
+    </service>
+  </component>
+
+</composite>
